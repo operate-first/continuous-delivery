@@ -1,0 +1,62 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: chat-notification-succeeded-
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - name: chat-notification
+          image: ubi-minimal
+          command:
+            - "curl"
+            - "-X"
+            - "POST"
+            - "-H"
+            - "Content-Type: application/json; charset=UTF-8"
+            - "-d"
+            - "{'text':'I have successfully synchronized *op1st-cicd* to *PROD*, see <https://argocd-server/applications/prod-op1st-cicd|ArgoCD UI> 🚀'}"
+            - "$(DEVOPS_CHAT_WEBHOOK_URL)"
+          env:
+            - name: DEVOPS_CHAT_WEBHOOK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: chat-notification
+                  key: devops
+      restartPolicy: Never
+  backoffLimit: 2
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: chat-notification-failed-
+  annotations:
+    argocd.argoproj.io/hook: SyncFail
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - name: chat-notification
+          image: ubi-minimal
+          command:
+            - "curl"
+            - "-X"
+            - "POST"
+            - "-H"
+            - "Content-Type: application/json; charset=UTF-8"
+            - "-d"
+            - "{'text':'🔥 *FAILED* syncing *op1st-cicd* components to *PROD*, see <https://argocd-server/applications/prod-op1st-cicd|ArgoCD UI>'}"
+            - "$(DEVOPS_CHAT_WEBHOOK_URL)"
+          env:
+            - name: DEVOPS_CHAT_WEBHOOK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: chat-notification
+                  key: devops
+      restartPolicy: Never
+  backoffLimit: 2
