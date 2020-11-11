@@ -7,6 +7,9 @@
     - id: continuous-delivery-setup-source-operations
       label: Setting up Source Code Operations
       href: /continuous-delivery/setup_source_operations
-    - id: continuous-delivery
+    - id: continuous-delivery-setup-ci
       label: Setting up a Continuous Integration Pipeline
       href: /continuous-delivery/setup_ci_pipeline
+    - id: continuous-delivery-setup-cd
+      label: Setting up a Continuous Depliyvey Pipeline
+      href: /continuous-delivery/setup_cd_pipeline
