@@ -3,4 +3,10 @@
   links:
     - id: cicd_intro
       label: (Oppinionated) Continuous Delivery
-      href: /continuous-delivery/continuous_delivery_intro
+      href: /continuous-delivery/continuous_delivery
+    - id: continuous-delivery-setup-source-operations
+      label: Setting up Source Code Operations
+      href: /continuous-delivery/setup_source_operations
+    - id: continuous-delivery
+      label: Setting up a Continuous Integration Pipeline
+      href: /continuous-delivery/setup_ci_pipeline
