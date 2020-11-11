@@ -1,0 +1,6 @@
+- id: continuous-delivery
+  label: Continuous Delivery
+  links:
+    - id: cicd_intro
+      label: (Oppinionated) Continuous Delivery
+      href: /continuous-delivery/continuous_delivery_intro
