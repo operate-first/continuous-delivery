@@ -6,20 +6,20 @@ This chapter describes how to set up a continuous delivery pipeline using Tekton
 
 Setting up AICoE-CI on to your Github Organization/Repository can be commenced with three simple steps process:
 
-- AICoE-CI is available as [github application](https://github.com/apps/aicoe-ci).<br>
+- AICoE-CI is available as [github application](https://github.com/apps/aicoe-ci).<br />
   Install and configure the app on your GitHub Organization or Repository.
 
 - Send invite to our friendly cyborg bot as a Contributor: [Sesheta](https://github.com/sesheta)
 
-- Add the aicoe-ci configuration file into your repository/repositories.<br>
-  Example configuration file: [.aicoe-ci.yaml](docs/.aicoe-ci.yaml)<br>
+- Add the aicoe-ci configuration file into your repository/repositories.<br />
+  Example configuration file: [.aicoe-ci.yaml](docs/.aicoe-ci.yaml)<br />
   More Detailed Explanation on aicoe-ci configuration file: [aicoe-ci configuration file](#aicoe-ci-configuration-file)
 
 **NOTE**: Interested in Other Thoth-bots, AICoE-CI works very well with other bots. More information on Setup of other Thoth Bots: [Thoth Bots Setup](docs/thoth-bots-setup.md)
 
 ## AICoE-CI configuration file
 
-The AICoE-CI configuration file is to be added to the root of the repository directory and to be named: `.aicoe-ci.yaml`<br>
+The AICoE-CI configuration file is to be added to the root of the repository directory and to be named: `.aicoe-ci.yaml`<br />
 It allows the user to configure checks, release modules to pypi, build preferences and update imagestream in kustomize yaml file.
 
 ### Configuring checks and tests
@@ -73,9 +73,9 @@ ODH-Jupyterhub    | odh-jupyterhub-thoth-pusher-secret
 
 It is the responsibility of the Users/Developer to setup a robot or a serviceaccount in the image registry and pass on the kubernetes secret containing `.dockerconfigjson` secret. On the quay repository, the robot can be setup and the kubernetes secret of the robot can be passed to the aicoe-ci instance. This secret would be setup in the instance and would be available for the users to specific as a registry-secret. Steps to setup robot in quay and configure it to the quay repository:
 
-- First, we need to create a robot in the Organization (also possible to setup in individual account).<br>
-  Adding a robot account<br>
-  Click on Create Robot Account and enter a name for the account. The username will become namespace+accountname where namespace is the name of the user or Organization.<br>
+- First, we need to create a robot in the Organization (also possible to setup in individual account).<br />
+  Adding a robot account<br />
+  Click on Create Robot Account and enter a name for the account. The username will become namespace+accountname where namespace is the name of the user or Organization.<br />
   ![quay-robot](/docs/quay-robots.png)
 
 - Click on the Robot creation, goto kubernetes secret and pass on that information to aicoe-ci instance. Currently you would have to pass it on by contacting us, we are still trying to figure out some alternative
@@ -86,7 +86,7 @@ It is the responsibility of the Users/Developer to setup a robot or a serviceacc
 
 ### Configuring Deploy requirements
 
-AICoE-CI enable users to utilize the GitOps power and update manifest files with relevant information from the builds.<br>
+AICoE-CI enable users to utilize the GitOps power and update manifest files with relevant information from the builds.<br />
 User can point the context path and repository of the imagestream manifest, that has to be updated with the newly built available image tag.
 
 ```yaml
