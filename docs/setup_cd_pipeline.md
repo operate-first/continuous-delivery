@@ -9,7 +9,7 @@ Setting up AICoE-CI on to your Github Organization/Repository can be commenced w
 - AICoE-CI is available as [github application](https://github.com/apps/aicoe-ci).<br />
   Install and configure the app on your GitHub Organization or Repository.
 
-- Send invite to our friendly cyborg bot as a Contributor: [Sesheta](https://github.com/sesheta)
+- Send invite to our friendly cyborg bot as a Contributor: [Sesheta](https://github.com/sesheta).
 
 - Add the aicoe-ci configuration file into your repository/repositories.<br />
   Example configuration file: [.aicoe-ci.yaml](docs/.aicoe-ci.yaml)<br />
@@ -24,7 +24,7 @@ It allows the user to configure checks, release modules to pypi, build preferenc
 
 ### Configuring checks and tests
 
-CI provides following checks for pull requests.Each check is independent of each other, so users can pick and choose the tests which they require for there repository. It can be added into the `.aicoe.yaml` configuration file, as shown in the example snippet below.
+CI provides following checks for pull requests. Each check is independent of each other, so users can pick and choose the tests which they require for there repository. It can be added into the `.aicoe.yaml` configuration file, as shown in the example snippet below.
 
 ```yaml
 check:
@@ -78,7 +78,7 @@ It is the responsibility of the Users/Developer to setup a robot or a serviceacc
   Click on Create Robot Account and enter a name for the account. The username will become namespace+accountname where namespace is the name of the user or Organization.<br />
   ![quay-robot](/docs/quay-robots.png)
 
-- Click on the Robot creation, goto kubernetes secret and pass on that information to aicoe-ci instance. Currently you would have to pass it on by contacting us, we are still trying to figure out some alternative
+- Click on the Robot creation, goto kubernetes secret and pass on that information to aicoe-ci instance. Currently you would have to pass it on by contacting us, we are still trying to figure out some alternative.
 
 - Once the secret is passed we could get that secret to the aicoe-ci instance, then it would be ready to be used as `registry-secret`.
 
