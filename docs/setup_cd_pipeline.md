@@ -53,7 +53,7 @@ Configuration files allows user assign details about the build requirements and 
 
 ```yaml
 build:
-  build-stratergy: Dockerfile # Allowed values: Source, Dockerfile, Containerfile (default: Source)
+  build-strategy: Dockerfile # Allowed values: Source, Dockerfile, Containerfile (default: Source)
   base-image: registry.access.redhat.com/ubi8/ubi:latest
   dockerfile-path: Dockerfile
   registry: quay.io # Imgage registry to be used. (default: quay.io)
@@ -96,4 +96,4 @@ deploy:
   overlay-contextpath: example/overlays/test/imagestreamtag.yaml # Imagestream manifest where tag is to be updated.
 ```
 
-For More details, Visit: <https://github.com/AICoE/aicoe-ci>
+For more details, Visit: <https://github.com/AICoE/aicoe-ci>
