@@ -6,7 +6,7 @@ assignees: sesheta
 labels: bot
 ---
 
-**Do you a project on AICoE org in Quay.io?**
+**Do you want a new repository in the AICoE org created on Quay.io?**
 Simple yes or no, along with some description.
 
 **Detail required for the setup:**
