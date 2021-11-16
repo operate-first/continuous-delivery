@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+- chains-controller-leaderelection-rbac.yaml
+- chains-controller-sa.yaml
+- chains-leader-election-roles.yaml

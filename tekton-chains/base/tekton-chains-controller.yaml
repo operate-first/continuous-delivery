@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tekton-chains-controller
+  labels:
+    app.kubernetes.io/name: tekton-pipelines
+    app.kubernetes.io/component: chains
+    pipeline.tekton.dev/release: "devel"
+    version: "v0.5.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tekton-chains-controller
+  template:
+    metadata:
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "false"
+      labels:
+        app: tekton-chains-controller
+        app.kubernetes.io/name: tekton-pipelines
+        app.kubernetes.io/component: controller
+        # # tekton.dev/release value replaced with inputs.params.versionTag in pipeline/tekton/publish.yaml
+        # pipeline.tekton.dev/release: "devel"
+        version: "v0.5.0"
+    spec:
+      serviceAccountName: tekton-chains-controller
+      containers:
+        - name: tekton-chains-controller
+          image: gcr.io/tekton-releases/github.com/tektoncd/chains/cmd/controller:v0.5.0@sha256:3b9d98af5fcdb3c9e481d3cbf80d5d89ffc933883bc5e221bfae3a50f1535a63
+          volumeMounts:
+            - name: signing-secrets
+              mountPath: /etc/signing-secrets
+          env:
+            - name: SYSTEM_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: METRICS_DOMAIN
+              value: tekton.dev/chains
+      volumes:
+        - name: signing-secrets
+          secret:
+            secretName: signing-secrets
