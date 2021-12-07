@@ -5,3 +5,5 @@ resources:
 - chains-controller-leaderelection-rbac.yaml
 - chains-controller-sa.yaml
 - chains-leader-election-roles.yaml
+generators:
+  - ./tekton-chain-secret-generator.yaml
