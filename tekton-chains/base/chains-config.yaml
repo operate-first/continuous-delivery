@@ -8,4 +8,8 @@ metadata:
     app.kubernetes.io/instance: default
     app.kubernetes.io/part-of: tekton-pipelines
     pipeline.tekton.dev/release: "devel"
-    version: "v0.5.0"
+    version: "v0.6.1"
+data:
+  artifacts.taskrun.format: in-toto
+  artifacts.taskrun.storage: oci
+  transparency.enabled: "true"
