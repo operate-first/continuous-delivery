@@ -5,3 +5,4 @@ resources:
 - config-logging.yaml
 - signing-secrets.yaml
 - tekton-chains-controller.yaml
+- chains-anyuid-rolebinding.yaml
