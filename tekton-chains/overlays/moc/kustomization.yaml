@@ -7,3 +7,5 @@ resources:
 - chains-leader-election-roles.yaml
 generators:
   - ./tekton-chain-secret-generator.yaml
+generatorOptions:
+  disableNameSuffixHash: true
